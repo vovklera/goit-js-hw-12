@@ -57,8 +57,8 @@ async function handleSubmit(event){
         if (res.totalHits > per_page) {
             showLoadMoreButton();
         } else {
-            iziToast.error({
-            message: "Something went wrong. Please try again later.",
+            iziToast.info({
+            message: "We're sorry, but you've reached the end of search results.",
             position: "topRight",
             });
         }
