@@ -56,7 +56,12 @@ async function handleSubmit(event){
         
         if (res.totalHits > per_page) {
             showLoadMoreButton();
-        } 
+        } else {
+            iziToast.error({
+            message: "Something went wrong. Please try again later.",
+            position: "topRight",
+            });
+        }
     }
         catch(error) {
             console.log("Error", error);
@@ -97,7 +102,9 @@ showMoreBtn.addEventListener("click", async () => {
                 message: "We're sorry, but you've reached the end of search results.",
                 position: "topRight"
             });
-        } showLoadMoreButton();
+        } else {
+            showLoadMoreButton();
+        }
     }
     catch (error) {
         iziToast.error({
