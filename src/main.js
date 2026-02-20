@@ -35,6 +35,7 @@ async function handleSubmit(event){
         return;
     }
 
+    page = 1;
     formInput.value = "";
     
     clearGallery();
@@ -55,7 +56,7 @@ async function handleSubmit(event){
         
         if (res.totalHits > per_page) {
             showLoadMoreButton();
-        }
+        } 
     }
         catch(error) {
             console.log("Error", error);
@@ -93,10 +94,10 @@ showMoreBtn.addEventListener("click", async () => {
         if (page >= totalPages) {
             hideLoadMoreButton();
             iziToast.info({
-            message: "We're sorry, but you've reached the end of search results.",
-            position: "topRight"
+                message: "We're sorry, but you've reached the end of search results.",
+                position: "topRight"
             });
-        }
+        } showLoadMoreButton();
     }
     catch (error) {
         iziToast.error({
@@ -105,6 +106,5 @@ showMoreBtn.addEventListener("click", async () => {
         });
     } finally {
         hideLoader();
-        showLoadMoreButton();
     }
 });
